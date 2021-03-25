@@ -80,7 +80,7 @@ public class TestIntraEchange {
         System.out.println(opIntraEch.isMeilleur(opIntraEch3));
         System.out.println(opIntraEch.isMeilleur(opIntraEch2));
 
-        OperateurIntraTournee best = t.getMeilleurOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE);
+        OperateurLocal best = t.getMeilleurOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE);
 
         System.out.println(best);
         System.out.println(best.getDeltaCout());

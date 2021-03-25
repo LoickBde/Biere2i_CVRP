@@ -8,6 +8,11 @@ import operateur.OperateurLocal;
 import operateur.TypeOperateurLocal;
 import solution.Solution;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 public class RechercheLocale implements Solveur {
     @Override
     public String getNom() {
@@ -15,22 +20,31 @@ public class RechercheLocale implements Solveur {
     }
 
     @Override
-    public Solution solve(Instance instance) {
+        public Solution solve(Instance instance) {
         InsertionSimple is = new InsertionSimple();
         Solution s = is.solve(instance);
+
+        List<TypeOperateurLocal> typeOperateurLocalList = new ArrayList<TypeOperateurLocal>();
+        typeOperateurLocalList.add(TypeOperateurLocal.INTRA_DEPLACEMENT); //1
+        typeOperateurLocalList.add(TypeOperateurLocal.INTER_DEPLACEMENT); //2
+        typeOperateurLocalList.add(TypeOperateurLocal.INTER_ECHANGE); //3
+        typeOperateurLocalList.add(TypeOperateurLocal.INTRA_ECHANGE); //4
 
         boolean improve = true;
 
         while(improve){
             improve = false;
-            OperateurIntraTournee best = s.getMeilleurOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE); //INTRA_DEPLACEMENT
-            if(best.isMouvementAmeliorant()){
-                if(s.doMouvementRechercheLocale(best))
-                    improve = true;
+            for(TypeOperateurLocal type : typeOperateurLocalList){
+                OperateurLocal best = s.getMeilleurOperateurLocal(type);
+                if(best.isMouvementAmeliorant()){
+                    if(s.doMouvementRechercheLocale(best))
+                        improve = true;
+                }
             }
         }
         return s;
     }
+
 
     public static void main(String[] args) {
         Instance instance = null;

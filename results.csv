@@ -1,14 +1,14 @@
 ;Insertion simple;;;Insertion plus proche voisin;;;Meilleure insertion;;;ClarkeAndWight;;;Recherche Locale;;
 ;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?
-A-n32-k5;1 914;0;true;953;0;true;1 152;0;true;834;0;true;1 370;15;true
-A-n39-k5;2 119;0;true;1 147;0;true;1 112;0;true;907;0;true;1 359;16;true
-A-n54-k7;3 445;0;true;1 394;0;true;1 551;0;true;1 172;0;true;1 965;15;true
-A-n80-k10;5 441;0;true;2 304;0;true;2 366;0;true;1 818;16;true;3 465;16;true
-B-n31-k5;1 519;0;true;834;0;true;818;0;true;679;0;true;1 121;0;true
-B-n45-k6;1 837;0;true;845;0;true;876;0;true;725;15;true;1 223;0;true
-B-n57-k7;4 355;0;true;1 398;0;true;1 614;0;true;1 239;0;true;2 387;16;true
-B-n78-k10;4 369;0;true;1 514;0;true;1 521;0;true;1 261;16;true;2 549;15;true
-E-n101-k14;2 688;0;true;1 398;0;true;1 634;0;true;1 128;0;true;2 148;16;true
-P-n101-k4;2 287;0;true;950;0;true;947;15;true;751;16;true;1 420;63;true
+A-n32-k5;1 914;4;true;953;0;true;1 152;4;true;834;11;true;995;24;true
+A-n39-k5;2 119;0;true;1 147;0;true;1 112;1;true;907;3;true;913;30;true
+A-n54-k7;3 445;0;true;1 394;1;true;1 551;2;true;1 172;8;true;1 323;113;true
+A-n80-k10;5 441;0;true;2 304;1;true;2 366;6;true;1 818;21;true;1 954;263;true
+B-n31-k5;1 519;0;true;834;0;true;818;1;true;679;0;true;745;8;true
+B-n45-k6;1 837;0;true;845;1;true;876;1;true;725;2;true;821;12;true
+B-n57-k7;4 355;0;true;1 398;0;true;1 614;2;true;1 239;3;true;1 466;46;true
+B-n78-k10;4 369;0;true;1 514;0;true;1 521;4;true;1 261;9;true;1 678;90;true
+E-n101-k14;2 688;0;true;1 398;0;true;1 634;3;true;1 128;22;true;1 336;239;true
+P-n101-k4;2 287;0;true;950;0;true;947;5;true;751;21;true;911;144;true
 
-SOMME;29 974;0;true;12 737;0;true;13 591;15;true;10 514;63;true;19 007;172;true
+SOMME;29 974;4;true;12 737;3;true;13 591;29;true;10 514;100;true;12 142;969;true

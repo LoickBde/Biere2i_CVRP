@@ -4,8 +4,8 @@ import instance.reseau.Client;
 import solution.Tournee;
 
 public abstract class OperateurLocal extends Operateur {
-    private Client clientI;
-    private Client clientJ;
+    protected Client clientI;
+    protected Client clientJ;
     protected int positionI;
     protected int positionJ;
 
@@ -31,10 +31,10 @@ public abstract class OperateurLocal extends Operateur {
                 return new IntraDeplacement();
             case INTRA_ECHANGE:
                 return new IntraEchange();
-//            case INTER_DEPLACEMENT:
-//                return ;
-//            case INTER_ECHANGE:
-//                return ;
+            case INTER_DEPLACEMENT:
+                return new InterDeplacement();
+            case INTER_ECHANGE:
+                return new InterEchange();
             default:
                 return null;
         }
@@ -51,14 +51,12 @@ public abstract class OperateurLocal extends Operateur {
         }
     }
 
-    public static OperateurInterTournee getOperateurInter(TypeOperateurLocal type){
+    public static OperateurInterTournees getOperateurInter(TypeOperateurLocal type,Tournee tournee, Tournee autreTournee, int positionI, int positionJ) {
         switch (type){
-//            case INTER_DEPLACEMENT:
-//                return ;
-//            break;
-//            case INTER_ECHANGE:
-//                return ;
-//            break;
+            case INTER_DEPLACEMENT:
+                return new InterDeplacement(tournee, autreTournee, positionI, positionJ);
+            case INTER_ECHANGE:
+                return new InterEchange(tournee, autreTournee, positionI, positionJ);
             default:
                 return null;
         }

@@ -105,21 +105,40 @@ public class Solution {
         if(OperateurLocal.getOperateur(type) instanceof OperateurIntraTournee){
             return getMeilleurOperateurIntra(type);
         }
+        if(OperateurLocal.getOperateur(type) instanceof OperateurInterTournees){
+            return getMeilleurOperateurInter(type);
+        }
         return null;
     }
 
-    public OperateurIntraTournee getMeilleurOperateurIntra(TypeOperateurLocal type){
+    private OperateurLocal getMeilleurOperateurIntra(TypeOperateurLocal type){
         if(this.tournees.isEmpty()) return null;
 
-        OperateurIntraTournee best = new IntraDeplacement();
+        OperateurLocal best = new IntraDeplacement();
 
         for (Tournee t: this.tournees) {
-            OperateurIntraTournee op = t.getMeilleurOperateurIntra(type);
+            OperateurLocal op = t.getMeilleurOperateurIntra(type);
             if(op != null && op.isMeilleur(best)) {
                 best = op;
             }
         }
 
+        return best;
+    }
+
+    private OperateurLocal getMeilleurOperateurInter(TypeOperateurLocal type){
+        if(this.tournees.isEmpty()) return null;
+
+        OperateurLocal best = new InterDeplacement();
+
+        for (Tournee t: this.tournees) {
+            for(Tournee autreTournee: this.tournees){
+                OperateurLocal op = t.getMeilleurOperateurInter(autreTournee, type);
+                if(op != null && op.isMeilleur(best)) {
+                    best = op;
+                }
+            }
+        }
         return best;
     }
 
@@ -137,7 +156,10 @@ public class Solution {
     }
 
     public boolean doMouvementRechercheLocale(OperateurLocal infos){
-        if(!infos.doMouvementIfRealisable() || !infos.isMouvementAmeliorant()) return false;
+//        if(!infos.isMouvementAmeliorant())
+//            return false;
+        if(!infos.doMouvementIfRealisable())
+            return false;
         this.coutTotal+= infos.getDeltaCout();
         return check();
     }

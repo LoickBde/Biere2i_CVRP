@@ -9,7 +9,6 @@ import operateur.OperateurLocal;
 import operateur.TypeOperateurLocal;
 import solution.Tournee;
 
-
 public class TestIntraDeplacement {
 
     public static void main(String[] args) {
