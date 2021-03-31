@@ -28,6 +28,18 @@ public class InterDeplacement extends OperateurInterTournees {
     }
 
     @Override
+    public boolean isTabou(OperateurLocal operateur) {
+        if(!(operateur instanceof InterDeplacement))
+            return false;
+        if(!this.clientI.equals(operateur.clientI))
+            return false;
+        ListeTabou listeTabou = ListeTabou.getInstance();
+        if(operateur.getDeltaCout() < listeTabou.getDeltaAspiration())
+            return false;
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "InterDeplacement { " +
                 "tournee= " + tournee +

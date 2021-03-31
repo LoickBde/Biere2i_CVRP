@@ -1,14 +1,14 @@
-;Insertion simple;;;Insertion plus proche voisin;;;Meilleure insertion;;;ClarkeAndWight;;;Recherche Locale;;
-;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?
-A-n32-k5;1 914;4;true;953;0;true;1 152;4;true;834;11;true;995;24;true
-A-n39-k5;2 119;0;true;1 147;0;true;1 112;1;true;907;3;true;913;30;true
-A-n54-k7;3 445;0;true;1 394;1;true;1 551;2;true;1 172;8;true;1 323;113;true
-A-n80-k10;5 441;0;true;2 304;1;true;2 366;6;true;1 818;21;true;1 954;263;true
-B-n31-k5;1 519;0;true;834;0;true;818;1;true;679;0;true;745;8;true
-B-n45-k6;1 837;0;true;845;1;true;876;1;true;725;2;true;821;12;true
-B-n57-k7;4 355;0;true;1 398;0;true;1 614;2;true;1 239;3;true;1 466;46;true
-B-n78-k10;4 369;0;true;1 514;0;true;1 521;4;true;1 261;9;true;1 678;90;true
-E-n101-k14;2 688;0;true;1 398;0;true;1 634;3;true;1 128;22;true;1 336;239;true
-P-n101-k4;2 287;0;true;950;0;true;947;5;true;751;21;true;911;144;true
+;Insertion simple;;;Insertion plus proche voisin;;;Meilleure insertion;;;ClarkeAndWight;;;Recherche Locale;;;Recherche tabou;;
+;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?;cout;tps(ms);valide ?
+A-n32-k5;1 914;6;true;953;0;true;1 152;7;true;834;13;true;830;31;true;830;22 286;true
+A-n39-k5;2 119;1;true;1 147;0;true;1 112;1;true;907;2;true;888;5;true;888;36 641;true
+A-n54-k7;3 445;1;true;1 394;1;true;1 551;3;true;1 172;7;true;1 172;8;true;1 172;61 692;true
+A-n80-k10;5 441;0;true;2 304;0;true;2 366;4;true;1 818;14;true;1 810;30;true;1 810;78 586;true
+B-n31-k5;1 519;0;true;834;0;true;818;0;true;679;2;true;678;3;true;677;12 646;true
+B-n45-k6;1 837;0;true;845;1;true;876;0;true;725;1;true;715;3;true;715;24 042;true
+B-n57-k7;4 355;0;true;1 398;1;true;1 614;0;true;1 239;3;true;1 145;6;true;1 145;29 402;true
+B-n78-k10;4 369;0;true;1 514;0;true;1 521;0;true;1 261;10;true;1 254;8;true;1 250;33 714;true
+E-n101-k14;2 688;0;true;1 398;0;true;1 634;0;true;1 128;16;true;1 126;16;true;1 108;59 983;true
+P-n101-k4;2 287;0;true;950;0;true;947;16;true;751;0;true;739;31;true;711;82 766;true
 
-SOMME;29 974;4;true;12 737;3;true;13 591;29;true;10 514;100;true;12 142;969;true
+SOMME;29 974;8;true;12 737;3;true;13 591;31;true;10 514;68;true;10 357;141;true;10 306;441 758;true

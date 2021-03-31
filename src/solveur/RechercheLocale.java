@@ -3,6 +3,7 @@ package solveur;
 import instance.Instance;
 import io.InstanceReader;
 import io.exception.ReaderException;
+import operateur.ListeTabou;
 import operateur.OperateurIntraTournee;
 import operateur.OperateurLocal;
 import operateur.TypeOperateurLocal;
@@ -20,11 +21,14 @@ public class RechercheLocale implements Solveur {
     }
 
     @Override
-        public Solution solve(Instance instance) {
-        InsertionSimple is = new InsertionSimple();
-        Solution s = is.solve(instance);
+    public Solution solve(Instance instance) {
+        ListeTabou listeTabou = ListeTabou.getInstance();
+        listeTabou.vider();
 
-        List<TypeOperateurLocal> typeOperateurLocalList = new ArrayList<TypeOperateurLocal>();
+        ClarkeAndWright caw = new ClarkeAndWright();
+        Solution s = caw.solve(instance);
+
+        List<TypeOperateurLocal> typeOperateurLocalList = new ArrayList<>();
         typeOperateurLocalList.add(TypeOperateurLocal.INTRA_DEPLACEMENT); //1
         typeOperateurLocalList.add(TypeOperateurLocal.INTER_DEPLACEMENT); //2
         typeOperateurLocalList.add(TypeOperateurLocal.INTER_ECHANGE); //3

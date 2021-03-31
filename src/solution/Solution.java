@@ -18,6 +18,15 @@ public class Solution {
         this.tournees = new LinkedList<>();
     }
 
+    public Solution(Solution solution){
+        this.coutTotal = solution.coutTotal;
+        this.instance = solution.instance;
+        this.tournees = new LinkedList<>();
+        for(Tournee t : solution.tournees){
+            this.tournees.add(new Tournee(t));
+        }
+    }
+
     public boolean ajouterClientNvTournee(Client clientToAdd) {
         if(clientToAdd == null) return false;
         Tournee tournee = new Tournee(instance);

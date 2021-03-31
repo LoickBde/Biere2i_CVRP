@@ -23,6 +23,22 @@ public class IntraEchange extends OperateurIntraTournee {
     }
 
     @Override
+    public boolean isTabou(OperateurLocal operateur) {
+        if(!(operateur instanceof IntraEchange))
+            return false;
+        if(!this.tournee.equals(operateur.tournee))
+            return false;
+        if(!((clientI.equals(operateur.clientI) && clientJ.equals(operateur.clientJ)) ||
+                (clientJ.equals(operateur.clientI) && clientI.equals(operateur.clientJ)))) {
+            return false;
+        }
+        ListeTabou listeTabou = ListeTabou.getInstance();
+        if(operateur.getDeltaCout() < listeTabou.getDeltaAspiration())
+            return false;
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "IntraEchange { " +
                 "tournee= " + tournee +

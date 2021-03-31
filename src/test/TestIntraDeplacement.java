@@ -41,6 +41,8 @@ public class TestIntraDeplacement {
 
         System.out.println("Dep 0 vers 4 : " + t.deltaCoutDeplacement(0, 4));
         IntraDeplacement id1 = new IntraDeplacement(t, 0, 4);
+        IntraDeplacement id8 = new IntraDeplacement(t, 0, 5);
+        IntraDeplacement id9 = new IntraDeplacement(t, 1, 4);
         System.out.println(id1.toString() + " Delta cout : " + id1.getDeltaCout());
         System.out.println(id1.isMouvementRealisable());
         System.out.println(id1.isMouvementAmeliorant());
@@ -72,5 +74,8 @@ public class TestIntraDeplacement {
         id3.doMouvementIfRealisable();
 
         System.out.println("Cout total tournée : " + t.getCoutTotal());
+
+        System.out.println(id1.isTabou(id8));
+        System.out.println(id1.isTabou(id9));
     }
 }

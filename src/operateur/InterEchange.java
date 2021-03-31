@@ -26,4 +26,18 @@ public class InterEchange extends OperateurInterTournees {
     public int evalDeltaCoutAutreTournee() {
         return this.autreTournee.deltaCoutRemplacementInter(positionJ, this.clientJ, this.clientI);
     }
+
+    @Override
+    public boolean isTabou(OperateurLocal operateur) {
+        if(!(operateur instanceof InterEchange))
+            return false;
+        if(!((clientI.equals(operateur.clientI) || clientJ.equals(operateur.clientJ)) ||
+                (clientJ.equals(operateur.clientI) || clientI.equals(operateur.clientJ)))) {
+            return false;
+        }
+        ListeTabou listeTabou = ListeTabou.getInstance();
+        if(operateur.getDeltaCout() < listeTabou.getDeltaAspiration())
+            return false;
+        return true;
+    }
 }

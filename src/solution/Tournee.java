@@ -26,6 +26,14 @@ public class Tournee {
         this.clients = new LinkedList<>();
     }
 
+    public Tournee(Tournee tournee) {
+        this.capacite = tournee.capacite;
+        this.demandeTotal = tournee.demandeTotal;
+        this.coutTotal = tournee.coutTotal;
+        this.depot = tournee.depot;
+        this.clients = new LinkedList<>(tournee.clients);
+    }
+
     public boolean ajouterClient(Client clientToAdd) {
         if(clientToAdd == null)
             return false;
@@ -339,11 +347,12 @@ public class Tournee {
     }
 
     public OperateurLocal getMeilleurOperateurIntra(TypeOperateurLocal type){
+        ListeTabou listeTabou = ListeTabou.getInstance();
         OperateurIntraTournee best = new IntraDeplacement();
         for(int i=0; i<clients.size(); i++) {
             for(int j=0; j<=clients.size(); j++) {
                 OperateurIntraTournee op = OperateurLocal.getOperateurIntra(type, this, i, j);
-                if(op != null && op.isMeilleur(best)) {
+                if(op != null && op.isMeilleur(best) && !listeTabou.isTabou(op)) {
                     best = op;
                 }
             }
@@ -352,13 +361,14 @@ public class Tournee {
     }
 
     public OperateurLocal getMeilleurOperateurInter(Tournee autreTournee, TypeOperateurLocal type){
+        ListeTabou listeTabou = ListeTabou.getInstance();
         if(this.equals(autreTournee)) return this.getMeilleurOperateurIntra(type);
 
         OperateurInterTournees best = new InterDeplacement();
         for(int i=0; i<clients.size(); i++) {
             for(int j=0; j<=autreTournee.getClients().size(); j++) {
                 OperateurInterTournees op = OperateurLocal.getOperateurInter(type, this, autreTournee, i, j);
-                if(op != null && op.isMeilleur(best)) {
+                if(op != null && op.isMeilleur(best) && !listeTabou.isTabou(op)) {
                     best = op;
                 }
             }

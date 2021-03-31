@@ -62,6 +62,8 @@ public abstract class OperateurLocal extends Operateur {
         }
     }
 
+    public abstract boolean isTabou(OperateurLocal operateur);
+
     public int getPositionI() {
         return positionI;
     }

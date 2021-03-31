@@ -46,6 +46,10 @@ public class TestIntraEchange {
         OperateurIntraTournee opIntraEch5 = OperateurLocal.getOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE,t,4,3);
         OperateurIntraTournee opIntraEch6 = OperateurLocal.getOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE,t,4,5);
 
+        OperateurIntraTournee opIntraEch7 = OperateurLocal.getOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE,t,0,4);
+        OperateurIntraTournee opIntraEch8 = OperateurLocal.getOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE,t,4,0);
+        OperateurIntraTournee opIntraEch9 = OperateurLocal.getOperateurIntra(TypeOperateurLocal.INTRA_ECHANGE,t,3,1);
+
         assert opIntraEch != null;
         assert opIntraEch2 != null;
         assert opIntraEch3 != null;
@@ -86,6 +90,12 @@ public class TestIntraEchange {
         System.out.println(best.getDeltaCout());
         System.out.println(best.isMouvementRealisable());
         System.out.println(best.isMouvementAmeliorant());
+
+        System.out.println("----");
+
+        System.out.println(opIntraEch7.isTabou(opIntraEch3));
+        System.out.println(opIntraEch8.isTabou(opIntraEch3));
+        System.out.println(opIntraEch9.isTabou(opIntraEch3));
     }
 
 }

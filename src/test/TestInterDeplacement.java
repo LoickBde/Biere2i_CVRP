@@ -42,6 +42,7 @@ public class TestInterDeplacement {
 
         InterDeplacement interDep1 = new InterDeplacement(t, u, 2, 1);
         InterDeplacement interDep2 = new InterDeplacement(u, t, 0, 2);
+        InterDeplacement interDep3 = new InterDeplacement(t, u, 2, 1);
         System.out.println("interDep1 :"+interDep1.toString());
         System.out.println("interDep2 :"+interDep2.toString());
         System.out.println(interDep1.getDeltaCout());
@@ -68,6 +69,9 @@ public class TestInterDeplacement {
         System.out.println(u.toString());
         System.out.println(t.getCoutTotal());
         System.out.println(u.getCoutTotal());
+
+        System.out.println(interDep1.isTabou(interDep3));
+        System.out.println(interDep2.isTabou(interDep3));
     }
 
 }
